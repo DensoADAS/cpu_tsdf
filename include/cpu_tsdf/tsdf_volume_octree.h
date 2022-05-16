@@ -267,6 +267,13 @@ namespace cpu_tsdf
     getIntensityCloud (const Eigen::Affine3d &trans 
                         = Eigen::Affine3d::Identity ()) const;
 
+    /** \brief Cast a single ray, default direction is neg. z axis
+     *  \param[in] trans The pose of the camera relative to the TSDF
+     *  \return A cloud with XYZ+Normals densely sampled along the zero crossing
+     */
+    pcl::PointNormal
+    castRay (const Eigen::Affine3d &trans = Eigen::Affine3d::Identity ()) const;
+
     
     pcl::PointXYZ
     getVoxelCenter (size_t x, size_t y, size_t z) const;
