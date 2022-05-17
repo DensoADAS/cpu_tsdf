@@ -203,7 +203,7 @@ cpu_tsdf::TSDFVolumeOctree::updateVoxel (
   if (weight_by_variance_ && voxel->nsample_ > 5)
     w_new *= std::exp (logNormal (d_new, voxel->d_, voxel->getVariance ()));
   if (integrate_color_)
-    voxel->addObservation (d_new, w_new, max_weight_, pt.r, pt.g, pt.b);
+    assert(0); //voxel->addObservation (d_new, w_new, max_weight_, pt.r, pt.g, pt.b);
   else
     voxel->addObservation (d_new, w_new, max_weight_);
   if (voxel->d_ < -0.99)
@@ -212,8 +212,5 @@ cpu_tsdf::TSDFVolumeOctree::updateVoxel (
     return (1); // Say so
   else
     return (-1); // Otherwise say I'm empty
-  
-  
-  
 }
 
